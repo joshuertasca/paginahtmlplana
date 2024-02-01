@@ -3,11 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>API Call Example</title>
 </head>
-<body>
-    <h1>
-        Ricardo domelio perez es un gato de 10 años de color rojo que vive en colombia
-    </h1>
+<body onload="getData()">
+    <div id="result"></div>
+
+    <script>
+        function getData() {
+            fetch('https://script.google.com/macros/s/AKfycbzV_RcOcun2tPxLuOldbVjtLvxsObDuNvWvY_zWQS5mPMg5e1vm1zFqXkmce2cHSUoe/exec')
+                .then(response => response.text())
+                .then(data => {
+                    // Actualizar el contenido de la página con el texto recibido de la API
+                    console.log(data)
+                    document.getElementById('result').innerText = data;
+                })
+                .catch(error => console.error('Error al obtener datos de la API:', error));
+        }
+    </script>
 </body>
 </html>

@@ -41,3 +41,20 @@ Include the Bouncy Castle libraries in your project by adding the following depe
     <artifactId>bcpg-jdk15on</artifactId>
     <version>[Latest version]</version>
 </dependency>
+
+## Usage
+
+### Encrypting a File
+To encrypt a file, use the `encryptFile` method as shown below:
+
+```java
+String publicKeyPath = "path/to/public/key.asc";
+String inputFile = "path/to/input/file.txt";
+String outputFile = "path/to/output/file.pgp";
+
+try {
+    PGPPublicKey publicKey = PGPEncryptionService.readPublicKey(publicKeyPath);
+    PGPEncryptionService.encryptFile(outputFile, inputFile, publicKey, true, true);
+} catch (IOException | PGPException | NoSuchProviderException e) {
+    e.printStackTrace();
+}

@@ -5,10 +5,27 @@ This project is designed to automate the process of generating reports from What
 
 ## Project Structure
 - `src/main/java/`: Contains all Java source files organized by package:
-  - `com.aldeamo.whatsapp.whatsappsftpreports.model`: Data models representing the structure of the data in the application.
-  - `com.aldeamo.whatsapp.whatsappsftpreports.repository`: Interfaces for database access operations.
-  - `com.aldeamo.whatsapp.whatsappsftpreports.service`: Services that encapsulate business logic.
-  - `com.aldeamo.whatsapp.whatsappsftpreports.util`: Utility classes, including scheduled tasks and SFTP file upload handling.
+  - `com.aldeamo.whatsapp.whatsappsftpreports`: Root package for the project.
+    - `WhatsappSftpReportsApplication.java`: Main class for running the Spring Boot application.
+    - `config`: Contains configuration classes.
+      - `BouncyCastleProviderConfig.java`: Configuration for Bouncy Castle provider.
+      - `DatabaseConfig.java`: Configuration for database connections.
+    - `model`: Contains data models.
+      - `SftpConnectionModel.java`: Model representing the SFTP connection details.
+    - `repository`: Contains interfaces for database access operations.
+      - `MessageRepository.java`: Repository interface for message entity operations.
+    - `service`: Contains service interfaces and implementations.
+      - `ReportServiceI.java`: Interface for report services.
+      - `ReportTCServiceImpl.java`: Implementation of report service for TC reports.
+    - `util`: Contains utility classes.
+      - `PGPEncryptionService.java`: Utility class for PGP encryption.
+      - `DayUtility.java`: Utility class for handling day-related operations.
+      - `schedule`: Contains classes related to scheduled tasks.
+        - `ScheduledTasks.java`: Class for defining scheduled tasks.
+      - `sftp`: Contains classes related to SFTP operations.
+        - `SFTPUploader.java`: Utility class for uploading files via SFTP.
+    - `entity`: Contains entity classes.
+      - `WhatsappScotiabankTCEntity.java`: Entity class representing WhatsApp Scotiabank TC data.
 - `src/main/resources/`: Configuration files and resources.
 - `pom.xml`: Maven configuration file that includes project dependencies and build configuration.
 - `.git/`: Contains Git version control configurations and history.
@@ -16,6 +33,7 @@ This project is designed to automate the process of generating reports from What
 - `README.md`: Provides an overview of the project, setup instructions, and general information.
 - `HELP.md`: Additional guidance and help related to project setup and troubleshooting.
 - `.project`, `.classpath`, `.settings/`: Eclipse IDE specific configuration files that help in setting up the project in the Eclipse environment.
+
 
 
 # PGPEncryptionService

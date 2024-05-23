@@ -123,33 +123,5 @@ This retrieves an encryption-capable public key from a specified file containing
 **Output:** Returns a `PGPPublicKey` if a valid key is found, throws an exception otherwise.
 This retrieves an encryption-capable public key from a specified file containing a PGP key ring.
 
-## How It Works
-
-### encryptFile Method
-**Inputs:**
-- `outputFileName`: The name of the output file where the encrypted data will be written.
-- `inputFileName`: The name of the input file to be encrypted.
-- `encKey`: The public key used for encryption.
-- `armor`: If true, the output will be ASCII armored.
-- `withIntegrityCheck`: If true, the encryption will include an integrity check.
-
-**Process:**
-- Initializes an output stream for the encrypted file.
-- If `armor` is true, wraps the output stream in an `ArmoredOutputStream` for ASCII armor.
-- Compresses the input file and writes it to a literal data packet.
-- Creates a PGP encrypted data generator with the specified encryption key and options.
-- Encrypts the compressed literal data and writes the encrypted data to the output stream.
-
-**Output:** The method produces an encrypted file that can only be decrypted by the corresponding private key.
-
-### readPublicKey Method
-**Input:**
-- `publicKeyFilePath`: The path to the file containing the public key.
-
-**Process:**
-- Reads and parses the public key file into a `PGPPublicKeyRingCollection`.
-- Iterates through the key rings and keys to find an encryption-capable key.
-
-**Output:** Returns a `PGPPublicKey` if a valid key is found, throws an exception otherwise.
 
 

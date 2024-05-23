@@ -40,7 +40,7 @@ Include the Bouncy Castle libraries in your project by adding the following depe
     <groupId>org.bouncycastle</groupId>
     <artifactId>bcpg-jdk15on</artifactId>
     <version>[Latest version]</version>
-</dependency> (```)
+</dependency> ```
 
 ## Usage
 
